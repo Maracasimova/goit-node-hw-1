@@ -19,3 +19,10 @@ function removeContact(contactId) {
 function addContact(name, email, phone) {
   // ...твой код. Возвращает объект добавленного контакта. 
 }
+
+module.exports = {
+  listContacts,
+  getContactById,
+  removeContact,
+  addContact,
+};
