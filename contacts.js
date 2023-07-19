@@ -9,10 +9,12 @@ async function listContacts() {
     const data = await fs.readFile(contactsPath, "utf-8");
     const contacts = JSON.parse(data);
 
-    if (contacts.length) {
-      return console.table(contacts);
+    if (!contacts.length) {
+      console.log("No contacts found.");
+      return;
     }
-    console.log("No contacts found.");
+
+    console.table(contacts);
   } catch (error) {
     console.error("Error listing contacts:", error);
   }
