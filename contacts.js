@@ -1,6 +1,6 @@
 const fs = require("fs/promises");
 const path = require("path");
-const {nanoid} = require("nanoid");
+const { nanoid } = require("nanoid");
 
 const contactsPath = path.join(__dirname, "/db/contacts.json");
 
@@ -9,11 +9,10 @@ async function listContacts() {
     const data = await fs.readFile(contactsPath, "utf-8");
     const contacts = JSON.parse(data);
 
-    if (contacts.length > 0) {
-      console.table(contacts);
-    } else {
-      console.log("No contacts found.");
+    if (contacts.length) {
+      return console.table(contacts);
     }
+    console.log("No contacts found.");
   } catch (error) {
     console.error("Error listing contacts:", error);
   }
